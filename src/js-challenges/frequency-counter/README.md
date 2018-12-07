@@ -1,6 +1,6 @@
 ## Reto #1: Frequency counter
 
-English: Write a function called `sameFrequency` that given two numbers, return if their digits have the same frequency or not, return true if they do, false if they don't.
+Write a function called `sameFrequency` that given two numbers, return if their digits have the same frequency or not, return true if they do, false if they don't.
 
 Time complexity O(N)
 
@@ -17,7 +17,7 @@ sameFrequency(22,222) // `false`
 
 -----
 ## Reto #1: Cuenta repeticiones
-Español: Escribe una funcion llamada `sameFrequency`. Dada dos numeros enteros positivos, regresar `true` si en los dos numeros se repiten todos los numeros en la misma cantidad, asi sea en el mismo orden u orden diferente.
+Escribe una funcion llamada `sameFrequency`. Dada dos numeros enteros positivos, regresar `true` si en los dos numeros se repiten todos los numeros en la misma cantidad, asi sea en el mismo orden u orden diferente.
 
 La solucion debe tener complejidad: O(N)
 
