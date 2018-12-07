@@ -1,42 +1,56 @@
-function repeticiones(primerNumero, segundoNumero) {
-  if(!primerNumero || !segundoNumero) {
-    return 0
+function createFrequencyObject(numero) {
+  let frequencyObject = {}
+  numero = numero.toString()
+
+  for(let number of numero) {
+    frequencyObject[number] = ++frequencyObject[number] || 1
   }
 
-  if(typeof primerNumero !== 'number' || typeof segundoNumero !== 'number') {
-    return null
+  return frequencyObject
+}
+
+function frequenciesAreNotEqual(primerNumero, segundoNumero) {
+
+  let primerGrupoDeFrequecias = createFrequencyObject(primerNumero)
+  let segundoGrupoDeFrequecias = createFrequencyObject(segundoNumero)
+
+  for(let key in primerGrupoDeFrequecias) {
+    if(!(segundoGrupoDeFrequecias[key])) return true
+    if(segundoGrupoDeFrequecias[key] !== primerGrupoDeFrequecias[key]) return true
   }
 
-  if(primerNumero === segundoNumero) {
+  return false
+
+}
+
+function valuesAreNotNumbers(value, secondValue) {
+  if(typeof value !== 'number' || typeof secondValue !== 'number') {
+    return true
+  }
+  return false
+}
+
+function lengthsAreNotEqual(primerNumero, segundoNumero) {
+  if(primerNumero.toString().length !== segundoNumero.toString().length) {
     return true
   }
 
-  const primerNumeroEnString = primerNumero.toString()
-  const segundoNumeroEnString = segundoNumero.toString()
-  const lengthPrimerNumero = primerNumeroEnString.length
-  const lengthSegundoNumero = segundoNumeroEnString.length
+  return false
+}
 
-  if(lengthPrimerNumero !== lengthSegundoNumero) {
-    return false
-  }
+function sameFrequency(primerNumero, segundoNumero) {
 
-  let primerGrupoDeFrequecias = {}
-  let segundoGrupoDeFrequecias = {}
+  if(!primerNumero || !segundoNumero) return 0
 
-  for(let number of primerNumeroEnString) {
-    primerGrupoDeFrequecias[number] = ++primerGrupoDeFrequecias[number] || 1
-  }
+  if(valuesAreNotNumbers(primerNumero, segundoNumero)) return null
 
-  for(let number of segundoNumeroEnString) {
-    segundoGrupoDeFrequecias[number] = ++segundoGrupoDeFrequecias[number] || 1
-  }
+  if(primerNumero === segundoNumero) return true
 
-  for(let key in primerGrupoDeFrequecias) {
-    if(!(segundoGrupoDeFrequecias[key])) return false
-    if(segundoGrupoDeFrequecias[key] !== primerGrupoDeFrequecias[key]) return false
-  }
+  if(lengthsAreNotEqual(primerNumero, segundoNumero)) return false
+
+  if(frequenciesAreNotEqual(primerNumero, segundoNumero)) return false
 
   return true
 };
 
-export default repeticiones
+export default sameFrequency
