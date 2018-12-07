@@ -38,6 +38,15 @@ function lengthsAreNotEqual(primerNumero, segundoNumero) {
   return false
 }
 
+/**
+ * Esta es nuestra funcion, dividida en mini funciones.
+ * This is our function, divided into mini functions
+ *
+ * @param primerNumero
+ * @param segundoNumero
+ * @returns  boolean
+ */
+
 function sameFrequency(primerNumero, segundoNumero) {
 
   if(!primerNumero || !segundoNumero) return 0
