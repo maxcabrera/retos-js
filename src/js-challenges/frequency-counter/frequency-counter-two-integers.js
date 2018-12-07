@@ -1,42 +1,10 @@
-function createFrequencyObject(numero) {
-  let frequencyObject = {}
-  numero = numero.toString()
-
-  for(let number of numero) {
-    frequencyObject[number] = ++frequencyObject[number] || 1
-  }
-
-  return frequencyObject
-}
-
-function frequenciesAreNotEqual(primerNumero, segundoNumero) {
-
-  let primerGrupoDeFrequecias = createFrequencyObject(primerNumero)
-  let segundoGrupoDeFrequecias = createFrequencyObject(segundoNumero)
-
-  for(let key in primerGrupoDeFrequecias) {
-    if(!(segundoGrupoDeFrequecias[key])) return true
-    if(segundoGrupoDeFrequecias[key] !== primerGrupoDeFrequecias[key]) return true
-  }
-
-  return false
-
-}
-
-function valuesAreNotNumbers(value, secondValue) {
-  if(typeof value !== 'number' || typeof secondValue !== 'number') {
-    return true
-  }
-  return false
-}
-
-function lengthsAreNotEqual(primerNumero, segundoNumero) {
-  if(primerNumero.toString().length !== segundoNumero.toString().length) {
-    return true
-  }
-
-  return false
-}
+import {
+  emptyValues,
+  valuesAreNotNumbers,
+  equalNumbers,
+  lengthsAreNotEqual,
+  frequenciesAreNotEqual
+} from './frequency-utils'
 
 /**
  * Esta es nuestra funcion, dividida en mini funciones.
@@ -48,16 +16,17 @@ function lengthsAreNotEqual(primerNumero, segundoNumero) {
  */
 
 function sameFrequency(primerNumero, segundoNumero) {
+  const numbers = [primerNumero, segundoNumero]
 
-  if(!primerNumero || !segundoNumero) return 0
+  if(emptyValues(numbers)) return 0
 
-  if(valuesAreNotNumbers(primerNumero, segundoNumero)) return null
+  if(valuesAreNotNumbers(numbers)) return null
 
-  if(primerNumero === segundoNumero) return true
+  if(equalNumbers(numbers)) return true
 
-  if(lengthsAreNotEqual(primerNumero, segundoNumero)) return false
+  if(lengthsAreNotEqual(numbers)) return false
 
-  if(frequenciesAreNotEqual(primerNumero, segundoNumero)) {
+  if(frequenciesAreNotEqual(numbers)) {
     return false
   } else {
     return true
