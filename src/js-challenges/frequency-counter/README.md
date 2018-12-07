@@ -21,7 +21,7 @@ Escribe una funcion llamada `sameFrequency`. Dada dos numeros enteros positivos,
 
 La solucion debe tener complejidad: O(N)
 
-### Examples:
+### Ejemplos:
 
 sameFrequency(182, 281) // `true`
 
