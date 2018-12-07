@@ -57,9 +57,11 @@ function sameFrequency(primerNumero, segundoNumero) {
 
   if(lengthsAreNotEqual(primerNumero, segundoNumero)) return false
 
-  if(frequenciesAreNotEqual(primerNumero, segundoNumero)) return false
-
-  return true
+  if(frequenciesAreNotEqual(primerNumero, segundoNumero)) {
+    return false
+  } else {
+    return true
+  }
 };
 
 export default sameFrequency
